@@ -1,0 +1,56 @@
+.experience-card {
+  background-color: rgba(256, 256, 256, 0.07);
+  border-radius: 8px;
+  width: '100%';
+  padding: 16px;
+  flex-direction: row;
+  display: flex;
+  margin-bottom: 24px;
+  border-width: 1px;
+  border-color: rgba(256, 256, 256, 0.1);
+  border-style: solid;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+}
+
+.experience-card second {
+  flex: 1;
+  padding-left: 14px;
+}
+
+.first-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.second-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-header {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.card-company {
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.card-subheader {
+  font-size: 15px;
+  padding-bottom: 4px;
+  opacity: 0.6;
+}
+
+ul {
+  list-style-type: disc;
+  padding-top: 18px;
+}
+
+li {
+  margin-bottom: 10px;
+  line-height: 22px;
+}

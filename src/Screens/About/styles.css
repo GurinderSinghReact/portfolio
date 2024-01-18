@@ -1,0 +1,207 @@
+
+.marquee {
+    flex: 0 0 auto;
+    min-width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    animation: scroll var(--duration) linear var(--delay) var(--iteration-count);
+    animation-play-state: var(--play);
+    animation-delay: var(--delay);
+    animation-direction: var(--direction);
+}
+
+.marquee2 {
+    flex: 0 0 auto;
+    min-width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    animation: scroll2 var(--duration) linear var(--delay) var(--iteration-count);
+    animation-play-state: var(--play);
+    animation-delay: var(--delay);
+    animation-direction: var(--direction);
+    padding-top: 20px;
+}
+
+.marquee-container {
+    overflow-x: hidden !important;
+    display: flex !important;
+    flex-direction: row !important;
+    position: relative;
+    width: 100%;
+}
+
+.container {
+    padding-left: 1%;
+    padding-right: 2%;
+    margin-top: 20px;
+}
+
+.marquee-container:hover div {
+    animation-play-state: paused;
+}
+
+#style-rX2oc.style-rX2oc {
+    --play: running;
+    --direction: normal;
+    --duration: 40s;
+    --delay: 0s;
+    --iteration-count: infinite;
+}
+
+#style-Cn1Y2.style-Cn1Y2 {
+    --play: running;
+    --direction: normal;
+    --duration: 40s;
+    --delay: 0s;
+    --iteration-count: infinite;
+}
+
+.card {
+    background-color: rgba(256, 256, 256, 0.07);
+    border-radius: 8px;
+    width: 112px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-width: 1px;
+    border-color: rgba(256, 256, 256, 0.1);
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 16px;
+}
+
+.card img {
+    width: 40px;
+    height: 40px;
+}
+
+.card-content {
+    flex: 1;
+    text-align: center;
+    display: inline-block;
+}
+
+.card-content p {
+    display: inline-block;
+}
+
+.experience-card {
+    background-color: rgba(256, 256, 256, 0.07);
+    border-radius: 8px;
+    width: '100%';
+    padding: 16px;
+    flex-direction: row;
+    display: flex;
+    margin-bottom: 24px;
+    border-width: 1px;
+    border-color: rgba(256, 256, 256, 0.1);
+    border-style: solid;
+}
+
+.experience-card second {
+    flex: 1;
+    padding-left: 14px;
+}
+
+.card-header {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.card-company {
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.card-subheader {
+    font-size: 15px;
+    padding-bottom: 4px;
+    opacity: 0.6;
+}
+
+.first-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.second-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    list-style-type: disc;
+    padding-top: 18px;
+}
+
+li {
+    margin-bottom: 10px;
+    line-height: 22px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll2 {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.education-card {
+    background-color: rgba(256, 256, 256, 0.07);
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: rgba(256, 256, 256, 0.1);
+    border-style: solid;
+    padding: 16px;
+    flex: 1;
+    margin-left: 12px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.education-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-title {
+    text-align: center;
+    font-weight: 900;
+    font-size: 16px;
+    padding-top: 16px;
+    padding-bottom: 12px;
+}
+
+.card-subtitle {
+    text-align: center;
+    opacity: 0.7;
+    line-height: 22px;
+}
+
+.card-year {
+    padding-top: 12px;
+    font-size: 26px;
+    font-weight: 800;
+}

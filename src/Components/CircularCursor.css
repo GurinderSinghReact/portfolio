@@ -1,0 +1,48 @@
+/* CircularCursor.css */
+body {
+    cursor: none;
+    /* Hide the default cursor */
+}
+
+.circular-cursor {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    /* Ensures the cursor doesn't interfere with mouse events on other elements */
+    z-index: 1000;
+    /* Ensure the cursor is on top of other elements */
+}
+
+.outer-circle {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border: 1px solid white;
+    /* Increased border width of the outer circle */
+    border-radius: 50%;
+    box-sizing: border-box;
+    /* Ensure the border is included in the width and height */
+}
+
+.inner-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fab005;
+    /* Theme color for the inner dot */
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+a:hover,
+input[type="text"]:hover {
+  cursor: none; /* Hide the cursor when hovering over links or text inputs */
+}
+
+::selection {
+  background-color: #fab005; /* Set the selection background color to the theme color */
+  color: #fff; /* Set the selection text color to a contrasting color */
+}
