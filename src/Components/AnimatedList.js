@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import { useInView } from 'react-intersection-observer';
 import "./AnimatedList.css";
@@ -6,6 +6,21 @@ import "./AnimatedList.css";
 const AnimatedListItem = ({ index, item }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [hoveredAppIndex, setHoveredAppIndex] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isMobile = windowWidth <= 768;
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -69,8 +84,8 @@ const AnimatedListItem = ({ index, item }) => {
                           ? require("../assets/images/active-playstore.png")
                           : require("../assets/images/playstore.png")
                       }
-                      width="34"
-                      height="34"
+                      width={isMobile ? "22" : "38"}
+                      height={isMobile ? "22" : "38"}
                       decoding="async"
                       data-nimg="1"
                       loading="lazy"
@@ -80,7 +95,7 @@ const AnimatedListItem = ({ index, item }) => {
                   </a>
                 )}
                 {item?.appstore && item?.playstore && (
-                  <div style={{ width: "14px" }} />
+                  <div style={{ width: isMobile ? "8px" :  "14px" }} />
                 )}
                 {item?.appstore && (
                   <a
@@ -95,8 +110,8 @@ const AnimatedListItem = ({ index, item }) => {
                           ? require("../assets/images/active-app.png")
                           : require("../assets/images/app.png")
                       }
-                      width="38"
-                      height="38"
+                      width={isMobile ? "22" : "38"}
+                      height={isMobile ? "22" : "38"}
                       decoding="async"
                       data-nimg="1"
                       loading="lazy"
@@ -142,8 +157,8 @@ const AnimatedListItem = ({ index, item }) => {
                     <img
                       key={index}
                       alt="Playstore"
-                      width="34"
-                      height="34"
+                      width={isMobile ? "22" : "38"}
+                      height={isMobile ? "22" : "38"}
                       decoding="async"
                       data-nimg="1"
                       loading="lazy"
@@ -173,8 +188,8 @@ const AnimatedListItem = ({ index, item }) => {
                           ? require("../assets/images/active-app.png")
                           : require("../assets/images/app.png")
                       }
-                      width="38"
-                      height="38"
+                      width={isMobile ? "22" : "38"}
+                      height={isMobile ? "22" : "38"}
                       decoding="async"
                       data-nimg="1"
                       loading="lazy"

@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CollapsibleCard.css";
 import { getDuration } from "../utils/helperFunctions";
 import moment from "moment";
 
 const CollapsibleCard = ({ cardContent }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isMobile = windowWidth <= 768;
 
   const toggleCard = () => {
     setIsExpanded((prev) => !prev);
@@ -14,11 +29,11 @@ const CollapsibleCard = ({ cardContent }) => {
     <div class={`experience-card ${isExpanded ? "expanded" : ""}`}>
       <div>
         <img
-          src="https://media.licdn.com/dms/image/D4D0BAQGpHvxqOmu-Qg/company-logo_200_200/0/1696404086102/taxmann_technologies_private_limited_logo?e=1712793600&v=beta&t=qTfzOeyiWF_Xd0IphMDFiEHvZaXW29-ZiGoSCaZK7iI"
+          src={cardContent.logo}
           alt="Gurinder Singh logo"
           style={{
-            width: "64px",
-            height: "64px",
+            width: isMobile ? "56px" : "64px",
+            height: isMobile ? "56px" : "64px",
             borderRadius: "8px",
           }}
         />
@@ -34,6 +49,31 @@ const CollapsibleCard = ({ cardContent }) => {
               {cardContent?.location} · {cardContent?.mode}
             </div>
           </div>
+          {!isMobile && (
+            <div class="card-subheader">
+              {moment(cardContent?.joiningDate).format("MMM YYYY")} -{" "}
+              {cardContent?.exitDate === moment().format("MM-YY-YYYY")
+                ? "Present"
+                : moment(cardContent?.exitDate).format("MMM YYYY")}{" "}
+              ·{" "}
+              {getDuration(
+                [
+                  moment(
+                    moment(cardContent?.exitDate).format("MM-YY-YYYY"),
+                    "MM-YY-YYYY"
+                  ).format("YYYY, MM, DD"),
+                ],
+                [
+                  moment(
+                    moment(cardContent?.joiningDate).format("MM-YY-YYYY"),
+                    "MM-YY-YYYY"
+                  ).format("YYYY, MM, DD"),
+                ]
+              )}
+            </div>
+          )}
+        </div>
+        {isMobile && (
           <div class="card-subheader">
             {moment(cardContent?.joiningDate).format("MMM YYYY")} -{" "}
             {cardContent?.exitDate === moment().format("MM-YY-YYYY")
@@ -55,7 +95,7 @@ const CollapsibleCard = ({ cardContent }) => {
               ]
             )}
           </div>
-        </div>
+        )}
         {isExpanded && (
           <ul>
             {cardContent?.achivements?.map((val) => (

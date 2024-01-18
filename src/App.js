@@ -25,10 +25,12 @@ function App() {
     };
   }, []);
 
+  const isMobile = windowWidth <= 768; // You can adjust the breakpoint as needed
+
   return (
     <BrowserRouter>
-      <Header windowWidth={windowWidth} />
-      <CircularCursor />
+      <Header windowWidth={windowWidth} isMobile={isMobile} />
+      {!isMobile && <CircularCursor />}
       <TransitionRoutes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

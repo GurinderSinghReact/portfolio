@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaSquareXTwitter, FaSquareGithub, FaLinkedin } from "react-icons/fa6";
+import { useEffect, useState } from "react";
 
 const StyledFooter = styled.footer`
   width: 100%;
@@ -31,10 +32,17 @@ const NavManu = styled.ul`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 2px;
+
+    .nav-menu-list {
+      text-decoration: none;
+      color: white;
+      display: block;
+      padding: 2px;
+    }
   }
   .socialIconBtn {
-    font-size: 34px;
+    font-size: 4px;
     cursor: pointer;
     padding: 4px;
   }
@@ -50,21 +58,44 @@ const SocialMenu = styled.ul`
     display: block;
     padding: 10px;
   }
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
   .socialIconBtn {
-    font-size: 32px;
+    font-size: 34px;
     cursor: pointer;
     padding: 4px;
-    margin-top: 10px;
+    margin-top: 0px;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    .socialIconBtn {
+      font-size: 24px;
+      cursor: pointer;
+      padding: 4px;
+      margin-top: 0px;
+    }
   }
 `;
 
-const Footer = ({ windowWidth }) => {
+const Footer = () => {
+
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isMobile = windowWidth <= 768; 
+
   return (
     <>
-      <StyledFooter style={{paddingTop: '80px'}}>
+      <StyledFooter style={{paddingTop: isMobile ? '0px' : '80px'}}>
         <NavManu>
           <li>
             <Link to={"/"} className="nav-menu-list">

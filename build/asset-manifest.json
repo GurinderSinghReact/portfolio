@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.36812171.css",
+    "main.js": "/static/js/main.5d4747bc.js",
+    "static/js/787.addeb1cd.chunk.js": "/static/js/787.addeb1cd.chunk.js",
+    "static/media/taxmannstoreApp.png": "/static/media/taxmannstoreApp.a9322ac88b321cfc7fb8.png",
+    "static/media/asiScreenshot.png": "/static/media/asiScreenshot.cb66efc0888fd84c08be.png",
+    "static/media/nfaScreenshot.png": "/static/media/nfaScreenshot.0cd2ca7106fb6efb2cd6.png",
+    "static/media/vybrScreenshot.png": "/static/media/vybrScreenshot.42ca4ad823c6373ce1af.png",
+    "static/media/minutesfitScreenshot.png": "/static/media/minutesfitScreenshot.88a5724c4bee1f3c69c5.png",
+    "static/media/digyooScreenshot.png": "/static/media/digyooScreenshot.387019f826552a8833e5.png",
+    "static/media/hallowedonesScreenshot.png": "/static/media/hallowedonesScreenshot.8316e7f54d3f02a1c8df.png",
+    "static/media/tilalScreenshot.png": "/static/media/tilalScreenshot.0965162214f22b70f720.png",
+    "static/media/aabScreenshot.png": "/static/media/aabScreenshot.1f9ef1ba957b6e3f1fe6.png",
+    "static/media/arascaScreenshot.png": "/static/media/arascaScreenshot.1c6b4f22def0f9aafe06.png",
+    "static/media/saiTechScreenshot.png": "/static/media/saiTechScreenshot.4e55cfe8a839f301fcb1.png",
+    "static/media/careaidScreenshot.png": "/static/media/careaidScreenshot.23261d989203c292f89b.png",
+    "static/media/researchScreenshot.png": "/static/media/researchScreenshot.7a9f56012f3c029d0c15.png",
+    "static/media/icaScreenshot.png": "/static/media/icaScreenshot.97b6f7d9c219f3aff760.png",
+    "static/media/yousatScreenshot.png": "/static/media/yousatScreenshot.82843a6b7dbd2f30563b.png",
+    "static/media/clubjScreenshot.png": "/static/media/clubjScreenshot.21d9e4848a59dd47d546.png",
+    "static/media/gurinder-singh.svg": "/static/media/gurinder-singh.3d78db8c6708df31bc6cb29a6ed57129.svg",
+    "index.html": "/index.html",
+    "main.36812171.css.map": "/static/css/main.36812171.css.map",
+    "main.5d4747bc.js.map": "/static/js/main.5d4747bc.js.map",
+    "787.addeb1cd.chunk.js.map": "/static/js/787.addeb1cd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36812171.css",
+    "static/js/main.5d4747bc.js"
+  ]
+}

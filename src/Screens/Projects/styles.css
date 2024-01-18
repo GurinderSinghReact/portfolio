@@ -4,6 +4,10 @@
     width: 100%;
 }
 
+.isMobile {
+    display: column;
+}
+
 .counter-container {
     text-align: center;
     margin-top: 20px;
@@ -47,13 +51,13 @@
     width: 250px
 }
 
-.header-text {
+.header-text-project {
     font-size: 60px;
     padding-top: 24px;
     font-weight: 800;
 }
 
-.subheader-text {
+.subheader-text-project {
     font-size: 15px;
     padding-top: 24px;
     line-height: 1.5em;
@@ -141,5 +145,26 @@
 
     to {
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header-text-project {
+        font-size: 30px;
+        padding-top: 14px;
+        font-weight: 800;
+        padding-bottom: 18px;
+    }
+
+    .subheader-text-project {
+        font-size: 14px;
+        padding-top: 4px;
+        line-height: 1.5em;
+        padding-bottom: 20px;
+    }
+
+    .child-div-left {
+        width: 100%;
+        float: left;
     }
 }

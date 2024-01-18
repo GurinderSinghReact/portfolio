@@ -86,6 +86,75 @@
   margin-top: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  .title-header {
+    font-size: 24px;
+    line-height: 1em;
+    font-weight: 700;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  .contact-container {
+    background-color: rgba(256, 256, 256, 0.1);
+    padding: 40px;
+    height: 100%;
+    margin-top: 4%;
+    align-items: flex-start;
+    display: column;
+    border-color: rgba(256, 256, 256, 0.1);
+    border-width: 1px;
+    border-style: solid;
+    transform: translateY(20px); /* Initial position, slide up effect */
+    animation: fadeInSlideUp 0.8s ease-in-out forwards; /* Animation definition */
+  }
+
+  .text-input-container {
+    position: relative;
+    margin-bottom: 22px;
+    /* Adjust as needed */
+  }
+
+  .text-input {
+    width: 92%;
+    padding: 4px;
+    border: none;
+    border-bottom: 0.1px solid white;
+    /* Updated border width to 1px */
+    outline: none;
+    background-color: transparent;
+    /* Transparent background */
+    color: white;
+    /* Text color set to white */
+    transition: border-bottom-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    /* Transition for smooth color change */
+  
+    /* Additional styles for the input if needed */
+    font-size: 12px;
+    caret-color: #fab005;
+    /* Change cursor color */
+  }
+
+  .arrow {
+    height: 30px;
+    width: 30px;
+    align-self: flex-end;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  .contact-card {
+    color: white;
+    opacity: 0.7;
+    font-size: 10px;
+    line-height: 1.5em;
+    font-weight: 700;
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  
+}
+
 @keyframes fadeInSlideUp {
   from {
     opacity: 0;

@@ -2,8 +2,25 @@ import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import moment from "moment";
 import CollapsibleCard from "../../Components/CollapsibleCard";
+import EducationCardMobile from "../../Components/EducationCardMobile";
 
 export default function About() {
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isMobile = windowWidth <= 768;
+
   const topSkills = [
     {
       name: "HTML",
@@ -110,7 +127,7 @@ export default function About() {
 
   return (
     <div class="container">
-      <h1 style={styles.headerText}>Skills</h1>
+      <h1 style={{ fontSize: isMobile ? "1.3em" : "2em" }}>Skills</h1>
       <div class="marquee-container">
         <div class="marquee style-rX2oc" id="style-rX2oc">
           {topSkills.map((val) => (
@@ -175,7 +192,9 @@ export default function About() {
           ))}
         </div>
       </div>
-      <h1 style={styles.headerText2}>Experience</h1>
+      <h1 style={isMobile ? styles.mobileHeaderText2 : styles.headerText2}>
+        Experience
+      </h1>
 
       {/* <ExpandableCard
         cards={[
@@ -205,6 +224,7 @@ export default function About() {
         cardContent={{
           profileName: "React Native Developer",
           companyName: "Taxmann Technologies Pvt. Ltd.",
+          logo: "https://media.licdn.com/dms/image/D4D0BAQGpHvxqOmu-Qg/company-logo_200_200/0/1696404086102/taxmann_technologies_private_limited_logo?e=1712793600&v=beta&t=qTfzOeyiWF_Xd0IphMDFiEHvZaXW29-ZiGoSCaZK7iI",
           role: "Full-time",
           location: "New Delhi, Delhi, India",
           mode: "On-site",
@@ -217,122 +237,122 @@ export default function About() {
             "Demonstrated effective leadership by coordinating team efforts to achieve project goals.",
             "Collaborated closely with cross-functional teams to ensure cohesion and efficiency in product development.",
             "Pioneered innovative strategies to enhance app performance, resulting in measurable improvements and heightened user satisfaction.",
-            "Worked closely with QA teams, implementing robust testing procedures to deliver bug-free, high-performance applications."
+            "Worked closely with QA teams, implementing robust testing procedures to deliver bug-free, high-performance applications.",
           ],
         }}
       />
 
-      <div class="experience-card">
-        <div>
-          <img
-            src="https://media.licdn.com/dms/image/C510BAQGWxfiq2uVmuw/company-logo_200_200/0/1630596229516/code_brew_labs_logo?e=1712793600&v=beta&t=eSdeLgjt6HCsVlLDzw8btsRIQ_h_DrJtbX4tsnES_O0"
-            alt="Gurinder Singh logo"
-            style={{
-              width: "64px",
-              height: "64px",
-              borderRadius: "8px",
-            }}
-          />
-        </div>
-        <second>
-          <div class="second-header">
-            <div class="first-header">
-              <div class="card-header">React Native Developer</div>
-              <div class="card-company">Code Brew Labs · Full-time</div>
-              <div class="card-subheader">Chandigarh, India · On-site</div>
-            </div>
-            <div class="card-subheader">Jul 2021 - July 2023 · 2 yrs 7 mos</div>
-          </div>
-          {/* <ul>
-            <li>
-              Crafted pixel-perfect and responsive UIs for seamless experiences
-              on iOS and Android.
-            </li>
-            <li>
-              Leveraged native APIs, enriching functionalities for an enhanced
-              user experience.
-            </li>
-            <li>
-              Resolved bugs and performance bottlenecks with precision, ensuring
-              native-like performance.
-            </li>
-            <li>
-              Actively contributed to the open-source community, providing
-              timely solutions for React Native challenges.
-            </li>
-            <li>
-              Maintained codebase integrity with industry best practices and
-              automated tests.
-            </li>
-            <li>
-              Collaborated with project management and marketing teams to align
-              technical development with project goals.
-            </li>
-            <li>
-              Maintained comprehensive technical documentation for effective
-              knowledge transfer.
-            </li>
-            <li>
-              Recognized for excellence and significant project contributions.
-            </li>
-          </ul> */}
-        </second>
-      </div>
+      <CollapsibleCard
+        cardContent={{
+          profileName: "React Native Developer",
+          logo: "https://media.licdn.com/dms/image/C510BAQGWxfiq2uVmuw/company-logo_200_200/0/1630596229516/code_brew_labs_logo?e=1712793600&v=beta&t=eSdeLgjt6HCsVlLDzw8btsRIQ_h_DrJtbX4tsnES_O0",
+          companyName: "Code Brew Labs",
+          role: "Full-time",
+          location: "Chandigarh, India",
+          mode: "On-site",
+          joiningDate: "01-01-2021",
+          exitDate: "07-01-2023",
+          achivements: [
+            "Crafted pixel-perfect and responsive UIs for seamless experiences on iOS and Android.",
+            "Leveraged native APIs, enriching functionalities for an enhanced user experience.",
+            "Resolved bugs and performance bottlenecks with precision, ensuring native-like performance.",
+            "Actively contributed to the open-source community, providing timely solutions for React Native challenges.",
+            "Maintained codebase integrity with industry best practices and automated tests.",
+            "Collaborated with project management and marketing teams to align technical development with project goals.",
+            "Maintained comprehensive technical documentation for effective knowledge transfer.",
+            "Recognized for excellence and significant project contributions.",
+          ],
+        }}
+      />
 
-      <h1 style={styles.headerText3}>Education</h1>
-      <div class="education-container">
-        <div class="education-card">
-          <img
-            src="https://media.licdn.com/dms/image/C510BAQE412vkBCXQ3Q/company-logo_200_200/0/1630617320562?e=1712793600&v=beta&t=PXR06vetzu-q7XFzFff3pYSOGd-7TjIh3VRqHUm7iVc"
-            alt="Gurinder Singh logo"
-            style={{
-              width: "70px",
-              height: "70px",
-              borderRadius: "100px",
-            }}
-          />
-          <div class="card-title">Matriculation</div>
-          <div>
-            <div class="card-subtitle">St. John's School</div>
-            <div class="card-subtitle">Faridabad, Haryana</div>
+      <h1 style={isMobile ? styles.mobileHeaderText3 : styles.headerText3}>
+        Education
+      </h1>
+      {isMobile ? (
+        <>
+        <EducationCardMobile
+          cardContent={{
+            profileName: "B. Tech in Computer Science",
+            logo: "https://upload.wikimedia.org/wikipedia/en/3/3a/Lovely_Professional_University_logo.png",
+            companyName: "Lovely Professional University",
+            location: "Phagwara, Punjab, India",
+            mode: "2017",
+          }}
+        />
+         <EducationCardMobile
+          cardContent={{
+            profileName: "Matriculation",
+            logo: "https://media.licdn.com/dms/image/C510BAQE412vkBCXQ3Q/company-logo_200_200/0/1630617320562?e=1712793600&v=beta&t=PXR06vetzu-q7XFzFff3pYSOGd-7TjIh3VRqHUm7iVc",
+            companyName: "St. John's School",
+            location: "Faridabad, Haryana, India",
+            mode: "2016",
+          }}
+        />
+         <EducationCardMobile
+          cardContent={{
+            profileName: "Intermediate",
+            logo: "https://media.licdn.com/dms/image/C510BAQE412vkBCXQ3Q/company-logo_200_200/0/1630617320562?e=1712793600&v=beta&t=PXR06vetzu-q7XFzFff3pYSOGd-7TjIh3VRqHUm7iVc",
+            companyName: "St. John's School",
+            location: "Faridabad, Haryana, India",
+            mode: "2014",
+          }}
+        />
+        </>
+      ) : (
+        <div class="education-container">
+          <div class="education-card">
+            <img
+              src="https://media.licdn.com/dms/image/C510BAQE412vkBCXQ3Q/company-logo_200_200/0/1630617320562?e=1712793600&v=beta&t=PXR06vetzu-q7XFzFff3pYSOGd-7TjIh3VRqHUm7iVc"
+              alt="Gurinder Singh logo"
+              style={{
+                width: "70px",
+                height: "70px",
+                borderRadius: "100px",
+              }}
+            />
+            <div class="card-title">Matriculation</div>
+            <div>
+              <div class="card-subtitle">St. John's School</div>
+              <div class="card-subtitle">Faridabad, Haryana</div>
+            </div>
+            <div class="card-year">2014</div>
           </div>
-          <div class="card-year">2014</div>
-        </div>
-        <div class="education-card">
-          <img
-            src="https://media.licdn.com/dms/image/C510BAQE412vkBCXQ3Q/company-logo_200_200/0/1630617320562?e=1712793600&v=beta&t=PXR06vetzu-q7XFzFff3pYSOGd-7TjIh3VRqHUm7iVc"
-            alt="Gurinder Singh logo"
-            style={{
-              width: "70px",
-              height: "70px",
-              borderRadius: "100px",
-            }}
-          />
-          <div class="card-title">Intermediate</div>
-          <div>
-            <div class="card-subtitle">St. John's School</div>
-            <div class="card-subtitle">Faridabad, Haryana</div>
+          <div class="education-card">
+            <img
+              src="https://media.licdn.com/dms/image/C510BAQE412vkBCXQ3Q/company-logo_200_200/0/1630617320562?e=1712793600&v=beta&t=PXR06vetzu-q7XFzFff3pYSOGd-7TjIh3VRqHUm7iVc"
+              alt="Gurinder Singh logo"
+              style={{
+                width: "70px",
+                height: "70px",
+                borderRadius: "100px",
+              }}
+            />
+            <div class="card-title">Intermediate</div>
+            <div>
+              <div class="card-subtitle">St. John's School</div>
+              <div class="card-subtitle">Faridabad, Haryana</div>
+            </div>
+            <div class="card-year">2016</div>
           </div>
-          <div class="card-year">2016</div>
-        </div>
-        <div class="education-card">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/en/3/3a/Lovely_Professional_University_logo.png"
-            alt="Gurinder Singh logo"
-            style={{
-              width: "70px",
-              height: "70px",
-              borderRadius: "100px",
-            }}
-          />
-          <div class="card-title">
-            B. Tech<br></br>Computer Science
+          <div class="education-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/3/3a/Lovely_Professional_University_logo.png"
+              alt="Gurinder Singh logo"
+              style={{
+                width: "70px",
+                height: "70px",
+                borderRadius: "100px",
+              }}
+            />
+            <div class="card-title">
+              B. Tech<br></br>Computer Science
+            </div>
+            <div class="card-subtitle">Lovely Professional University</div>
+            <div class="card-subtitle">Jalandhar, Punjab</div>
+            <div class="card-year">2021</div>
           </div>
-          <div class="card-subtitle">Lovely Professional University</div>
-          <div class="card-subtitle">Jalandhar, Punjab</div>
-          <div class="card-year">2021</div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -348,6 +368,14 @@ const styles = {
   headerText3: {
     fontSize: "2em",
     marginTop: "60px",
+  },
+  mobileHeaderText2: {
+    fontSize: "1.3em",
+    marginTop: "40px",
+  },
+  mobileHeaderText3: {
+    fontSize: "1.3em",
+    marginTop: "20px",
   },
   paraStyle: {
     fontSize: "1em",

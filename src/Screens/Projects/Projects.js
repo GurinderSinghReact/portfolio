@@ -5,6 +5,21 @@ import AnimatedList from "../../Components/AnimatedList";
 export default function Projects() {
   const [fixedHeader, setFixedHeader] = useState(false);
   const [count, setCount] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isMobile = windowWidth <= 768;
 
   const projectList = [
     {
@@ -24,7 +39,7 @@ export default function Projects() {
         "Taxmann.com app: Your go-to source for real-time updates on tax and corporate laws, offering expert opinions and comprehensive research across diverse legal domains in India.",
       img: require("../../assets/images/researchScreenshot.png"),
       color: "#1C8749",
-      style: { width: "126%", height: "100%" },
+      style: { width: isMobile ? "115%" : "126%", height: "100%"},
       appstore:
         "https://apps.apple.com/in/app/taxmann-com-research/id1629849446",
       playstore:
@@ -162,7 +177,7 @@ export default function Projects() {
     {
       name: "HallowedOnes-Christian dating",
       description:
-        "Christian Social Network powered by Ekobridge.com. Join FREE to connect with Christian singles, swipe matching, in-app chat, and safety features. Secure platform for Christian singles seeking courtship and marriage.",
+        "Christian Social Network powered by Ekobridge.com. Join FREE to connect with Christian singles, swipe matching, in-app chat, and safety features.",
       color: "#E74140",
       style: { width: "76%", height: "86%" },
       img: require("../../assets/images/hallowedonesScreenshot.png"),
@@ -200,7 +215,7 @@ export default function Projects() {
   }, []);
 
   useEffect(() => {
-    if (fixedHeader) {
+    if (fixedHeader && !isMobile) {
       const intervalId = setInterval(() => {
         setCount((prevCount) => {
           const newCount = prevCount + 1;
@@ -216,30 +231,37 @@ export default function Projects() {
   }, [fixedHeader]);
 
   return (
-    <div class="project-container">
+    <div class={isMobile ? "isMobile" : "project-container"}>
+      {/* {!isMobile && ( */}
       <div class="child-div-left">
         <div
           className={`fixed-position ${
             fixedHeader ? "fixed-header" : "relative-header"
           }`}
         >
-          <div class="header-text">Projects</div>
-          <div class="subheader-text">
-            Welcome to my project showcase! Here are some of the key projects
-            I've had the pleasure of working on. Each project represents a
-            unique challenge and an opportunity for innovation. Feel free to
-            explore and get a glimpse of my skills and expertise.
-          </div>
-          {fixedHeader && (
-            <div className="counter-container">
-              <div className="count">{count}+</div>
-              <div>apps & websites published</div>
-            </div>
+          <div class="header-text-project">Projects</div>
+          {!isMobile && (
+            <>
+              <div class="subheader-text-project">
+                Welcome to my project showcase! Here are some of the key
+                projects I've had the pleasure of working on. Each project
+                represents a unique challenge and an opportunity for innovation.
+                Feel free to explore and get a glimpse of my skills and
+                expertise.
+              </div>
+              {fixedHeader && (
+                <div className="counter-container">
+                  <div className="count">{count}+</div>
+                  <div>apps & websites published</div>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>
+      {/* )} */}
       <div class="child-div-right">
-      <AnimatedList items={projectList} />;
+        <AnimatedList items={projectList} />;
       </div>
     </div>
   );
