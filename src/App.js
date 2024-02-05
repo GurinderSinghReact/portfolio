@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Header from "./Components/Header";
 import Home from "./Screens/Home/Home";
 import Footer from "./Components/Footer";
@@ -28,7 +28,7 @@ function App() {
   const isMobile = windowWidth <= 768; // You can adjust the breakpoint as needed
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header windowWidth={windowWidth} isMobile={isMobile} />
       {!isMobile && <CircularCursor />}
       <TransitionRoutes>
@@ -38,7 +38,7 @@ function App() {
         <Route path="/connect" element={<Connect />} />
       </TransitionRoutes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
