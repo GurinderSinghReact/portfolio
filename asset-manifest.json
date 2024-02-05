@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.a64a73d8.css",
-    "main.js": "/static/js/main.d71a5212.js",
+    "main.js": "/static/js/main.5acacb8b.js",
     "static/js/787.addeb1cd.chunk.js": "/static/js/787.addeb1cd.chunk.js",
     "static/media/taxmannstoreApp.png": "/static/media/taxmannstoreApp.a9322ac88b321cfc7fb8.png",
     "static/media/asiScreenshot.png": "/static/media/asiScreenshot.cb66efc0888fd84c08be.png",
@@ -22,11 +22,11 @@
     "static/media/gurinder-singh.svg": "/static/media/gurinder-singh.3d78db8c6708df31bc6cb29a6ed57129.svg",
     "index.html": "/index.html",
     "main.a64a73d8.css.map": "/static/css/main.a64a73d8.css.map",
-    "main.d71a5212.js.map": "/static/js/main.d71a5212.js.map",
+    "main.5acacb8b.js.map": "/static/js/main.5acacb8b.js.map",
     "787.addeb1cd.chunk.js.map": "/static/js/787.addeb1cd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a64a73d8.css",
-    "static/js/main.d71a5212.js"
+    "static/js/main.5acacb8b.js"
   ]
 }
