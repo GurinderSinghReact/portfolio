@@ -6,6 +6,22 @@ import EducationCardMobile from "../../Components/EducationCardMobile";
 
 export default function About() {
   const [windowWidth, setWindowWidth] = useState(0);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleDarkModeChange = (event) => {
+      setIsDarkMode(event.matches);
+    };
+
+    darkModeMediaQuery.addEventListener('change', handleDarkModeChange);
+    setIsDarkMode(darkModeMediaQuery.matches);
+
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleDarkModeChange);
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -131,7 +147,7 @@ export default function About() {
       <div class="marquee-container">
         <div class="marquee style-rX2oc" id="style-rX2oc">
           {topSkills.map((val) => (
-            <div class="card">
+            <div class="card" style={{backgroundColor: isDarkMode ?  'rgba(256, 256, 256, 0.07)' : 'rgba(0, 0, 0, 0.04)'}}>
               <img
                 alt={val?.name}
                 src={val?.img}
@@ -144,9 +160,9 @@ export default function About() {
             </div>
           ))}
         </div>
-        <div class="marquee style-Cn1Y2" aria-hidden="true" id="style-Cn1Y2">
+        <div class="marquee style-Cn1Y2" aria-hidden="true" id="style-Cn1Y2" >
           {topSkills.map((val) => (
-            <div class="card">
+            <div class="card" style={{backgroundColor: isDarkMode ?  'rgba(256, 256, 256, 0.07)' : 'rgba(0, 0, 0, 0.04)'}}>
               <img
                 alt={val?.name}
                 src={val?.img}
@@ -163,7 +179,7 @@ export default function About() {
       <div class="marquee-container">
         <div class="marquee2 style-rX2oc" id="style-rX2oc">
           {bottomSkills.map((val) => (
-            <div class="card">
+            <div class="card" style={{backgroundColor: isDarkMode ?  'rgba(256, 256, 256, 0.07)' : 'rgba(0, 0, 0, 0.04)'}}>
               <img
                 alt={val?.name}
                 src={val?.img}
@@ -178,7 +194,7 @@ export default function About() {
         </div>
         <div class="marquee2 style-Cn1Y2" aria-hidden="true" id="style-Cn1Y2">
           {bottomSkills.map((val) => (
-            <div class="card">
+            <div class="card" style={{backgroundColor: isDarkMode ?  'rgba(256, 256, 256, 0.07)' : 'rgba(0, 0, 0, 0.04)'}}>
               <img
                 alt={val?.name}
                 src={val?.img}

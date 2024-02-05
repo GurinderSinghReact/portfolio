@@ -41,12 +41,32 @@
   width: 92%;
   padding: 10px;
   border: none;
+  border-bottom: 1px solid black;
+  /* Updated border width to 1px */
+  outline: none;
+  background-color: transparent;
+  /* Transparent background */
+  color: var(--text-color);
+  /* Text color set to white */
+  transition: border-bottom-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  /* Transition for smooth color change */
+
+  /* Additional styles for the input if needed */
+  font-size: 16px;
+  caret-color: #fab005;
+  /* Change cursor color */
+}
+
+.text-input-white {
+  width: 92%;
+  padding: 10px;
+  border: none;
   border-bottom: 1px solid white;
   /* Updated border width to 1px */
   outline: none;
   background-color: transparent;
   /* Transparent background */
-  color: white;
+  color: var(--text-color);
   /* Text color set to white */
   transition: border-bottom-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   /* Transition for smooth color change */
@@ -71,7 +91,7 @@
 }
 
 .contact-card {
-  color: white;
+  color: var(--text-color);
   opacity: 0.7;
   font-size: 14px;
   line-height: 1.5em;
@@ -118,12 +138,32 @@
     width: 92%;
     padding: 4px;
     border: none;
+    border-bottom: 0.1px solid black;
+    /* Updated border width to 1px */
+    outline: none;
+    background-color: transparent;
+    /* Transparent background */
+    color: var(--text-color);
+    /* Text color set to white */
+    transition: border-bottom-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    /* Transition for smooth color change */
+  
+    /* Additional styles for the input if needed */
+    font-size: 12px;
+    caret-color: #fab005;
+    /* Change cursor color */
+  }
+
+  .text-input-white {
+    width: 92%;
+    padding: 4px;
+    border: none;
     border-bottom: 0.1px solid white;
     /* Updated border width to 1px */
     outline: none;
     background-color: transparent;
     /* Transparent background */
-    color: white;
+    color: var(--text-color);
     /* Text color set to white */
     transition: border-bottom-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     /* Transition for smooth color change */
@@ -143,7 +183,7 @@
   }
 
   .contact-card {
-    color: white;
+    color: var(--text-color);
     opacity: 0.7;
     font-size: 10px;
     line-height: 1.5em;

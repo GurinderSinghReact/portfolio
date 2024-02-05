@@ -5,6 +5,24 @@ import './CircularCursor.css';
 const CircularCursor = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 });
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    );
+
+    const handleDarkModeChange = (event) => {
+      setIsDarkMode(event.matches);
+    };
+
+    darkModeMediaQuery.addEventListener("change", handleDarkModeChange);
+    setIsDarkMode(darkModeMediaQuery.matches);
+
+    return () => {
+      darkModeMediaQuery.removeEventListener("change", handleDarkModeChange);
+    };
+  }, []);
 
   useEffect(() => {
     const updateCursorPosition = (e) => {
@@ -15,7 +33,7 @@ const CircularCursor = () => {
         setCursorPosition({ x: clientX, y: clientY });
 
         // Calculate the position of the dot relative to the outer circle
-        const outerCircle = document.querySelector('.outer-circle');
+        const outerCircle = document.querySelector(".outer-circle");
         const outerCircleRect = outerCircle.getBoundingClientRect();
 
         const offsetX = clientX - outerCircleRect.left - outerCircleRect.width / 2;
@@ -37,7 +55,7 @@ const CircularCursor = () => {
 
   return (
     <div className="circular-cursor" style={{ left: cursorPosition.x, top: cursorPosition.y }}>
-      <div className="outer-circle"></div>
+      <div className={"outer-circle"}></div>
       <div className="inner-dot" style={{ left: dotPosition.x, top: dotPosition.y }}></div>
     </div>
   );

@@ -3,6 +3,22 @@ import "./EducationCardMobile.css";
 
 const EducationCardMobile = ({ cardContent }) => {
   const [windowWidth, setWindowWidth] = useState(0);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleDarkModeChange = (event) => {
+      setIsDarkMode(event.matches);
+    };
+
+    darkModeMediaQuery.addEventListener('change', handleDarkModeChange);
+    setIsDarkMode(darkModeMediaQuery.matches);
+
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleDarkModeChange);
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,7 +35,7 @@ const EducationCardMobile = ({ cardContent }) => {
   const isMobile = windowWidth <= 768;
 
   return (
-    <div class={`experience-card`}>
+    <div class={`experience-card`} style={{backgroundColor: isDarkMode ?  'rgba(256, 256, 256, 0.07)' : 'rgba(0, 0, 0, 0.04)'}}>
       <div>
         <img
           src={cardContent.logo}

@@ -23,7 +23,7 @@ const NavManu = styled.ul`
   display: flex;
   .nav-menu-list {
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
     display: block;
     padding: 10px;
   }
@@ -36,7 +36,7 @@ const NavManu = styled.ul`
 
     .nav-menu-list {
       text-decoration: none;
-      color: white;
+      color: var(--text-color);
       display: block;
       padding: 2px;
     }
@@ -54,7 +54,7 @@ const SocialMenu = styled.ul`
   list-style: none;
   .nav-menu-list {
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
     display: block;
     padding: 10px;
   }

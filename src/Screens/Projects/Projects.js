@@ -6,7 +6,7 @@ export default function Projects() {
   const [fixedHeader, setFixedHeader] = useState(false);
   const [count, setCount] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
-
+  
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);

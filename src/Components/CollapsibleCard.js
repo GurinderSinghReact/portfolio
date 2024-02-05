@@ -6,6 +6,23 @@ import moment from "moment";
 const CollapsibleCard = ({ cardContent }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleDarkModeChange = (event) => {
+      setIsDarkMode(event.matches);
+    };
+
+    darkModeMediaQuery.addEventListener('change', handleDarkModeChange);
+    setIsDarkMode(darkModeMediaQuery.matches);
+
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleDarkModeChange);
+    };
+  }, []);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,7 +43,7 @@ const CollapsibleCard = ({ cardContent }) => {
   };
 
   return (
-    <div class={`experience-card ${isExpanded ? "expanded" : ""}`}>
+    <div class={`experience-card ${isExpanded ? "expanded" : ""}`} style={{backgroundColor: isDarkMode ?  'rgba(256, 256, 256, 0.07)' : 'rgba(0, 0, 0, 0.04)'}}>
       <div>
         <img
           src={cardContent.logo}

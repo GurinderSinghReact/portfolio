@@ -72,7 +72,7 @@ const NavManu = styled.ul.attrs((props) => ({
   .nav-menu-list {
     text-decoration: none;
     display: block;
-    color: white;
+    color: var(--text-color);
   }
 
   .nav-menu-list.active {

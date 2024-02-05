@@ -7,6 +7,23 @@ const AnimatedListItem = ({ index, item }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [hoveredAppIndex, setHoveredAppIndex] = useState(null);
   const [windowWidth, setWindowWidth] = useState(0);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleDarkModeChange = (event) => {
+      setIsDarkMode(event.matches);
+    };
+
+    darkModeMediaQuery.addEventListener('change', handleDarkModeChange);
+    setIsDarkMode(darkModeMediaQuery.matches);
+
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleDarkModeChange);
+    };
+  }, []);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -60,7 +77,7 @@ const AnimatedListItem = ({ index, item }) => {
           class={`project-card ${index % 2 === 0 ? "left" : "right"}`}
           style={{
             paddingRight: "40px",
-            backgroundColor: index % 2 === 0 ? item?.color : "#000000",
+            backgroundColor: index % 2 === 0 ? item?.color : isDarkMode ? "#000000" : "#FFFFFF",
           }}
         >
           {index % 2 !== 0 ? (
@@ -82,7 +99,7 @@ const AnimatedListItem = ({ index, item }) => {
                       src={
                         hoveredIndex === index
                           ? require("../assets/images/active-playstore.png")
-                          : require("../assets/images/playstore.png")
+                          : isDarkMode ? require("../assets/images/playstore.png") : require("../assets/images/whitePlaystore.png")
                       }
                       width={isMobile ? "22" : "38"}
                       height={isMobile ? "22" : "38"}
@@ -108,7 +125,7 @@ const AnimatedListItem = ({ index, item }) => {
                       src={
                         hoveredAppIndex === index
                           ? require("../assets/images/active-app.png")
-                          : require("../assets/images/app.png")
+                          : isDarkMode ? require("../assets/images/app.png") : require("../assets/images/whiteApp.png")
                       }
                       width={isMobile ? "22" : "38"}
                       height={isMobile ? "22" : "38"}
@@ -138,7 +155,7 @@ const AnimatedListItem = ({ index, item }) => {
           class={`project-card ${index % 2 !== 0 ? "left" : "right"}`}
           style={{
             paddingLeft: "40px",
-            backgroundColor: index % 2 !== 0 ? item?.color : "#000000",
+            backgroundColor: index % 2 !== 0 ? item?.color : isDarkMode ? "#000000" : "#FFFFFF",
           }}
         >
           {index % 2 === 0 ? (
@@ -165,7 +182,7 @@ const AnimatedListItem = ({ index, item }) => {
                       src={
                         hoveredIndex === index
                           ? require("../assets/images/active-playstore.png")
-                          : require("../assets/images/playstore.png")
+                          : isDarkMode ? require("../assets/images/playstore.png") : require("../assets/images/whitePlaystore.png")
                       }
                       onMouseEnter={() => handleMouseEnter(index)}
                       onMouseLeave={handleMouseLeave}
@@ -186,7 +203,7 @@ const AnimatedListItem = ({ index, item }) => {
                       src={
                         hoveredAppIndex === index
                           ? require("../assets/images/active-app.png")
-                          : require("../assets/images/app.png")
+                          : isDarkMode ? require("../assets/images/app.png") : require("../assets/images/whiteApp.png")
                       }
                       width={isMobile ? "22" : "38"}
                       height={isMobile ? "22" : "38"}
