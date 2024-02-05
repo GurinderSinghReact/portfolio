@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
-import Typewriter from "typewriter-effect";
-import TypewriterComp from "../../Components/TypewriterComp";
 
 export default function Home() {
   const [windowWidth, setWindowWidth] = useState(0);

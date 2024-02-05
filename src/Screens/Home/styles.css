@@ -7,7 +7,7 @@
 }
 
 body {
-    color: var(--text-color);
+    color: '#fff';
     font-family: Lato, sans-serif;
     max-width: 60vw;
     margin: auto;
@@ -17,8 +17,8 @@ html {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: '#000';
+    color: '#fff';
 }
 
 main {
@@ -32,7 +32,7 @@ footer {
 }
 
 a {
-    color: var(--text-color);
+    color: '#fff';
     transition: opacity .2s ease-in-out;
     opacity: .84;
 }
